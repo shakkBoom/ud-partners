@@ -10,20 +10,20 @@
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             
-            // var user = firebase.auth().currentUser;
+            var user = firebase.auth().currentUser;
             // var userId = firebase.auth().currentUser.uid;
 
-            var user = authResult.user;
-            var credential = authResult.credential;
-            var isNewUser = authResult.additionalUserInfo.isNewUser;
-            var providerId = authResult.additionalUserInfo.providerId;
-            var operationType = authResult.operationType;
+            // var user = authResult.user;
+            // var credential = authResult.credential;
+            // var isNewUser = authResult.additionalUserInfo.isNewUser;
+            // var providerId = authResult.additionalUserInfo.providerId;
+            // var operationType = authResult.operationType;
         
-            if (isNewUser)
-            {
-                console.log("new signin");
-                user.sendEmailVerification();
-            }
+            // if (isNewUser)
+            // {
+            //     console.log("new signin");
+            //     user.sendEmailVerification();
+            // }
 
 
             // user.sendEmailVerification().then(function() {
