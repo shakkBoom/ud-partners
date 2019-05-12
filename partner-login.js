@@ -1,6 +1,7 @@
 (function(){
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    var db = firebase.firestore();
 
     var uiConfig = {
         callbacks: {
@@ -9,6 +10,42 @@
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             
+            // var user = firebase.auth().currentUser;
+            // var userId = firebase.auth().currentUser.uid;
+
+            var user = authResult.user;
+            var credential = authResult.credential;
+            var isNewUser = authResult.additionalUserInfo.isNewUser;
+            var providerId = authResult.additionalUserInfo.providerId;
+            var operationType = authResult.operationType;
+        
+            if (isNewUser)
+            {
+                console.log("new signin");
+                user.sendEmailVerification();
+            }
+
+
+            // user.sendEmailVerification().then(function() {
+            //     // Email sent.
+            //   }).catch(function(error) {
+            //     // An error happened.
+            //   });
+
+            // Add a new document in collection "Partners"
+            // db.collection("partners").doc(userId).set({
+            //     name: "Shakk"
+            // })
+            // .then(function() {
+            //     window.alert("Document successfully written!");
+                
+            // })
+            // .catch(function(error) {
+            //     window.alert("Error writing document: ", error);
+            // });
+
+            // window.alert(userId + " " + user.displayName );
+
             return true;
           },
           uiShown: function() {
@@ -33,10 +70,10 @@
         tosUrl: 'main.html',
         // Privacy policy url.   ***needs to be changed
         privacyPolicyUrl: 'main.html'
-      };
+    };
 
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
 
 })()
 
