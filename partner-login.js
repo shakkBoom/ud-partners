@@ -6,53 +6,49 @@
     var uiConfig = {
         callbacks: {
 
-        
-        
-
-
-        //   signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        //     // User successfully signed in.
-        //     // Return type determines whether we continue the redirect automatically
-        //     // or whether we leave that to developer to handle.
+          signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+            // User successfully signed in.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
             
-        //     var user = firebase.auth().currentUser;
-        //     // var userId = firebase.auth().currentUser.uid;
+            //var user = firebase.auth().currentUser;
+            // var userId = firebase.auth().currentUser.uid;
 
-        //     // var user = authResult.user;
-        //     // var credential = authResult.credential;
-        //     // var isNewUser = authResult.additionalUserInfo.isNewUser;
-        //     // var providerId = authResult.additionalUserInfo.providerId;
-        //     // var operationType = authResult.operationType;
+            // var user = authResult.user;
+            // var credential = authResult.credential;
+            // var isNewUser = authResult.additionalUserInfo.isNewUser;
+            // var providerId = authResult.additionalUserInfo.providerId;
+            // var operationType = authResult.operationType;
         
-        //     // if (isNewUser)
-        //     // {
-        //     //     console.log("new signin");
-        //     //     user.sendEmailVerification();
-        //     // }
+            // if (isNewUser)
+            // {
+            //     console.log("new signin");
+            //     user.sendEmailVerification();
+            // }
 
 
-        //     // user.sendEmailVerification().then(function() {
-        //     //     // Email sent.
-        //     //   }).catch(function(error) {
-        //     //     // An error happened.
-        //     //   });
+            // user.sendEmailVerification().then(function() {
+            //     // Email sent.
+            //   }).catch(function(error) {
+            //     // An error happened.
+            //   });
 
-        //     // Add a new document in collection "Partners"
-        //     // db.collection("partners").doc(userId).set({
-        //     //     name: "Shakk"
-        //     // })
-        //     // .then(function() {
-        //     //     window.alert("Document successfully written!");
+            // Add a new document in collection "Partners"
+            // db.collection("partners").doc(userId).set({
+            //     name: "Shakk"
+            // })
+            // .then(function() {
+            //     window.alert("Document successfully written!");
                 
-        //     // })
-        //     // .catch(function(error) {
-        //     //     window.alert("Error writing document: ", error);
-        //     // });
+            // })
+            // .catch(function(error) {
+            //     window.alert("Error writing document: ", error);
+            // });
 
-        //     // window.alert(userId + " " + user.displayName );
+            // window.alert(userId + " " + user.displayName );
 
-        //     return true;
-        //   },
+            return true;
+          },
           uiShown: function() {
             // The widget is rendered.
             // Hide the loader.
@@ -61,7 +57,7 @@
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: 'popup',
-        signInSuccessUrl: 'partner-home.html',
+        signInSuccessUrl: 'partner-reg.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
