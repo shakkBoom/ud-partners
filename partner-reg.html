@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style1.css" />
 
 </head>
 <body>
@@ -22,13 +23,9 @@
 <!-- Account setup cover -->
     <div class="signin-cover">
         <!-- MDL Spinner Component with Single Color -->
-        <!-- <div class="page-loader mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div> -->
+        <div class="page-loader mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
 
-        <h1>Good enough</h1>
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        Okay
-        </button>
+        
         
     <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="sample3">
@@ -40,6 +37,14 @@
         <label class="mdl-textfield__label" for="sample3">Location...</label>
 
     </div> -->
+    </div>
+
+    <div class="valMsg">
+        <h3 id= "signin-cov" ></h3>
+        <!-- Accent-colored raised button with ripple -->
+        <button id="valMsgBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Okay
+        </button>
     </div>
 
     <!-- <main class="mdl-layout__content main-layout">
@@ -76,37 +81,26 @@
             </main> -->
 
 
-            <form action="action_page.php">
-                    <div class="container">
-                      <h1>Register</h1>
-                      <p>Please fill in this form to create an account.</p>
-                      <hr>
-                  
-                      <label for="email"><b>Email</b></label>
-                      <input type="text" placeholder="Enter Email" name="email" required>
-                  
-                      <label for="psw"><b>Password</b></label>
-                      <input type="password" placeholder="Enter Password" name="psw" required>
-                  
-                      <label for="psw-repeat"><b>Repeat Password</b></label>
-                      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                      <hr>
-                  
-                      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                      <button type="submit" class="registerbtn">Register</button>
-                    </div>
-                  
-                    <div class="container signin">
-                      <p>Already have an account? <a href="#">Sign in</a>.</p>
-                    </div>
-                  </form>
-
-
     
+        <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+        
+            <label for="email"><b>Location</b></label>
+            <input type="text" placeholder="Enter Location" name="location" required>
+        
+            <!-- <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+        
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required> -->
+            <hr>
+            <button id="regButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Register
+                    </button>
+        </div>
     
-
-    
-
 
     <script src='firebase.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
