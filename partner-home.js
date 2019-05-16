@@ -31,23 +31,44 @@ var mainApp = {};
         //   window.alert("Alert 1");
         //   // window.alert(emailVerified);
 
-        //   if(!emailVerified){
-        //     user.sendEmailVerification().then(function() {
-        //         // Email sent.
-        //         window.alert("Alert 2 - Verification mail is sent. Please verify email before signing in.")
+            if(!emailVerified){
+                user.sendEmailVerification().then(function() {
+                    // Email sent.
+                    window.alert("Alert 2 - Verification mail is sent. Please verify email before signing in.")
 
-        //         // uid = null;
-        //         // // window.alert("Account not verified yet")
-        //         // window.location.replace("partner-login.html");
-        //         logout();
-        //     }).catch(function(error) {
-        //         // An error happened.
-        //     });
-        // } //else {
-        //     // document.getElementById("test").disabled = true;
-        //     //var dialog = document.querySelector('#test');
-        //     //$(".signin-cover").hide();
-        //   //}
+                    // uid = null;
+                    // // window.alert("Account not verified yet")
+                    // window.location.replace("partner-login.html");
+                    logout();
+                }).catch(function(error) {
+                    // An error happened.
+                });
+            } else {
+            var docRef2 = db.collection("partners").doc(uid);
+
+                docRef2.get().then(function(doc) {
+                    if (doc.exists) {
+                        console.log("Document data:", doc.data());
+                        
+                        window.alert("we are in");
+                        if (!doc.data().verifiedUser){
+                            window.alert("Alert 5 Account is not authorized yet. Please contact ugly-deals to get this sorted")
+                            // uid = null;
+                            // // window.alert("Account not verified yet")
+                            // window.location.replace("partner-login.html");
+                            logout();
+                        } else{
+                            $(".signin-cover").hide();
+                        }
+                    } else {
+                        // doc.data() will be undefined in this case
+                        console.log("No such document!");
+                        window.alert("There semms to be an error signing in. Please contact UD.")
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+          }
         
         //   var docRef = db.collection('partners').doc(uid);
 
@@ -70,27 +91,7 @@ var mainApp = {};
         //       }
         //   });      
 
-            var docRef2 = db.collection("partners").doc(uid);
-
-                docRef2.get().then(function(doc) {
-                    if (doc.exists) {
-                        console.log("Document data:", doc.data());
-                        
-                        // window.alert("we are in");
-                        // if (!doc.data().verifiedUser){
-                        //     window.alert("Alert 5 Account is not varified yet. Please contact ugly-deals to get this sorted")
-                        //     uid = null;
-                        //     // // window.alert("Account not verified yet")
-                        //     // window.location.replace("partner-login.html");
-                        //     logout();
-                        // }
-                    } else {
-                        // doc.data() will be undefined in this case
-                        console.log("No such document!");
-                    }
-                }).catch(function(error) {
-                    console.log("Error getting document:", error);
-                });
+            
 
         }
         else{

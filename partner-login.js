@@ -2,37 +2,30 @@
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     var db = firebase.firestore();
-
+    var url1 = null;
     var uiConfig = {
         callbacks: {
             
           signInSuccessWithAuthResult: function(authResult, redirectUrl) {
             
-            var user = firebase.auth().currentUser;
+            //var user = firebase.auth().currentUser;
+            var user = authResult.user;
+            var credential = authResult.credential;
+            var isNewUser = authResult.additionalUserInfo.isNewUser;
+            var providerId = authResult.additionalUserInfo.providerId;
+            var operationType = authResult.operationType;
             
-            if(!user.emailVerified){
-                
-                user.sendEmailVerification().then(function() {
-                    // Email sent.
-                    //window.alert("Alert 2 - Verification mail is sent. Please verify email before signing in.")
-                    window.alert("Email not verified. Verification email have been sent. Please verify before logging in.");    
-                    // document.getElementById("signin-cov").innerHTML = "Alert 2 - Verification mail is sent. Please verify email before signing in.";
-                    // $(".valMsg").show();
-                    // $(".signin-cover").hide();
-                    // uid = null;
-                    // // window.alert("Account not verified yet")
-                    // window.location.replace("partner-login.html");
-                    // $("#valMsgBtn").click(function(){
-                    //     logout()
-                    // });
-                    // $(".valMsg").hide();
-                    window.location.replace("partner-login.html");
-                }).catch(function(error) {
-                    // An error happened.
-                });
+            
+            if (isNewUser)
+            {
+                console.log("new signin");
+                //window.alert("New user alert")
+                // user.sendEmailVerification();
+                window.location.replace("partner-reg.html");
             } else{
                 return true;
-            }  
+            }
+            
             // User successfully signed in.
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
@@ -40,18 +33,9 @@
             //var user = firebase.auth().currentUser;
             // var userId = firebase.auth().currentUser.uid;
 
-            // var user = authResult.user;
-            // var credential = authResult.credential;
-            // var isNewUser = authResult.additionalUserInfo.isNewUser;
-            // var providerId = authResult.additionalUserInfo.providerId;
-            // var operationType = authResult.operationType;
+            
         
-            // if (isNewUser)
-            // {
-            //     console.log("new signin");
-            //     user.sendEmailVerification();
-            // }
-
+            
 
             // user.sendEmailVerification().then(function() {
             //     // Email sent.
